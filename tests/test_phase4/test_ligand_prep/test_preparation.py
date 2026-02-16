@@ -5,9 +5,9 @@ import os
 import pytest
 from rdkit import Chem
 
-from claudedd.core.exceptions import DockingError
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
-from claudedd.phase4.ligand_prep.preparation import (
+from drugflow.core.exceptions import DockingError
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.phase4.ligand_prep.preparation import (
     export_ligand_pdb,
     export_ligand_sdf,
     prepare_ligand,

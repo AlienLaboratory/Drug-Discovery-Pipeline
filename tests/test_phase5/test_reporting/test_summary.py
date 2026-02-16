@@ -2,8 +2,8 @@
 
 import pytest
 
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
-from claudedd.phase5.reporting.summary import (
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.phase5.reporting.summary import (
     create_pipeline_report,
     summarize_dataset,
     summarize_generation,
@@ -93,7 +93,7 @@ class TestCreatePipelineReport:
             {"phase1": {"n_molecules": 10}},
             metadata={"workflow": "test"},
         )
-        assert "claudedd_version" in report
+        assert "drugflow_version" in report
         assert "timestamp" in report
         assert "stages" in report
         assert "metadata" in report

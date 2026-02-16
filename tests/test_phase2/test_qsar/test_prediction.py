@@ -3,10 +3,10 @@
 import numpy as np
 import pytest
 
-from claudedd.core.exceptions import ModelError
-from claudedd.phase2.qsar.data_prep import extract_feature_matrix, extract_labels
-from claudedd.phase2.qsar.models import train_model
-from claudedd.phase2.qsar.prediction import predict_dataset, predict_single
+from drugflow.core.exceptions import ModelError
+from drugflow.phase2.qsar.data_prep import extract_feature_matrix, extract_labels
+from drugflow.phase2.qsar.models import train_model
+from drugflow.phase2.qsar.prediction import predict_dataset, predict_single
 
 
 @pytest.fixture

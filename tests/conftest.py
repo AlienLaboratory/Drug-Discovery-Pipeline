@@ -6,7 +6,7 @@ import pytest
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
 
 ASPIRIN_SMILES = "CC(=O)Oc1ccccc1C(=O)O"
 CAFFEINE_SMILES = "Cn1c(=O)c2c(ncn2C)n(C)c1=O"
@@ -146,10 +146,10 @@ def activity_dataset():
 @pytest.fixture
 def computed_dataset():
     """Dataset with properties, descriptors, and fingerprints pre-computed."""
-    from claudedd.phase1.data.validators import validate_dataset
-    from claudedd.phase1.analysis.properties import compute_properties_dataset
-    from claudedd.phase1.analysis.descriptors import compute_descriptors_dataset
-    from claudedd.phase1.analysis.fingerprints import compute_fingerprints_dataset
+    from drugflow.phase1.data.validators import validate_dataset
+    from drugflow.phase1.analysis.properties import compute_properties_dataset
+    from drugflow.phase1.analysis.descriptors import compute_descriptors_dataset
+    from drugflow.phase1.analysis.fingerprints import compute_fingerprints_dataset
 
     molecules = [
         ("aspirin", ASPIRIN_SMILES, 5.2),
@@ -220,8 +220,8 @@ def seed_dataset():
 @pytest.fixture
 def trained_rf_model(computed_dataset):
     """Trained Random Forest model for GA and active learning tests."""
-    from claudedd.phase2.qsar.data_prep import extract_feature_matrix, extract_labels
-    from claudedd.phase2.qsar.models import train_model
+    from drugflow.phase2.qsar.data_prep import extract_feature_matrix, extract_labels
+    from drugflow.phase2.qsar.models import train_model
 
     X, names, indices = extract_feature_matrix(
         computed_dataset, feature_source="descriptors",

@@ -3,8 +3,8 @@
 import pytest
 from rdkit import Chem
 
-from claudedd.core.exceptions import DockingError
-from claudedd.phase4.shape_screening.scoring import (
+from drugflow.core.exceptions import DockingError
+from drugflow.phase4.shape_screening.scoring import (
     compute_combo_score,
     compute_pharmacophore_score,
     compute_shape_protrusion,

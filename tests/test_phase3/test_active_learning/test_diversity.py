@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from claudedd.phase3.active_learning.diversity import (
+from drugflow.phase3.active_learning.diversity import (
     cluster_diversity_pick,
     compute_diversity_score,
     maxmin_diversity_pick,

@@ -3,9 +3,9 @@
 import pytest
 import pandas as pd
 
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
-from claudedd.phase3.benchmarking.benchmark_runner import BenchmarkResult
-from claudedd.phase3.benchmarking.comparison import (
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.phase3.benchmarking.benchmark_runner import BenchmarkResult
+from drugflow.phase3.benchmarking.comparison import (
     compare_results,
     compute_composite_ranking,
     export_comparison,

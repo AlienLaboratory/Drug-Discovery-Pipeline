@@ -5,8 +5,8 @@ import pytest
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
-from claudedd.phase4.interactions.plif import (
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.phase4.interactions.plif import (
     compare_plif,
     compute_plif,
     compute_plif_dataset,

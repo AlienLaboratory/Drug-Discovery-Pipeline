@@ -4,8 +4,8 @@ import pytest
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
-from claudedd.core.exceptions import DockingError
-from claudedd.phase4.interactions.contacts import (
+from drugflow.core.exceptions import DockingError
+from drugflow.phase4.interactions.contacts import (
     detect_all_contacts,
     detect_hbonds,
     detect_hydrophobic_contacts,

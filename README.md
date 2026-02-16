@@ -1,6 +1,6 @@
-# ClaudeDD
+# DrugFlow
 
-A modular command-line drug discovery pipeline built with RDKit and scikit-learn. From data loading to molecular docking, ClaudeDD provides a complete computational chemistry toolkit accessible through a single CLI.
+A modular command-line drug discovery pipeline built with RDKit and scikit-learn. From data loading to molecular docking, DrugFlow provides a complete computational chemistry toolkit accessible through a single CLI.
 
 ## Features
 
@@ -42,8 +42,8 @@ A modular command-line drug discovery pipeline built with RDKit and scikit-learn
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/ClaudeDD.git
-cd ClaudeDD
+git clone https://github.com/your-username/DrugFlow.git
+cd DrugFlow
 
 # Install in editable mode
 pip install -e .
@@ -61,14 +61,14 @@ pip install -e ".[dev]"
 
 ### Profile a molecule library
 ```bash
-claudedd pipeline quick-profile \
+drugflow pipeline quick-profile \
     --input molecules.csv \
     --output-dir output/profile
 ```
 
 ### Full hit-to-lead workflow
 ```bash
-claudedd workflow hit-to-lead \
+drugflow workflow hit-to-lead \
     --input molecules.csv \
     --output-dir output/hit2lead \
     --n-generate 100 --top-n 30
@@ -76,7 +76,7 @@ claudedd workflow hit-to-lead \
 
 ### De novo molecular design
 ```bash
-claudedd workflow denovo \
+drugflow workflow denovo \
     --input seeds.csv \
     --output-dir output/denovo \
     --strategy brics -n 200 --top-n 50
@@ -84,7 +84,7 @@ claudedd workflow denovo \
 
 ### Lead optimization
 ```bash
-claudedd workflow optimize \
+drugflow workflow optimize \
     --lead "CC(=O)Oc1ccccc1C(=O)O" \
     --output-dir output/optimize \
     --n-analogs 100 --top-n 20
@@ -93,7 +93,7 @@ claudedd workflow optimize \
 ## CLI Reference
 
 ```
-claudedd
+drugflow
   data          Load, standardize, export molecular data
   analyze       Compute properties, descriptors, fingerprints, filters
   viz           Structure grids, property plots, chemical space
@@ -109,7 +109,7 @@ claudedd
 ## Architecture
 
 ```
-src/claudedd/
+src/drugflow/
   core/           Models, config, constants, exceptions, logging
   phase1/
     data/         Loaders, validators, standardizer, writers
@@ -146,7 +146,7 @@ pytest tests/test_phase1/ -v
 pytest tests/test_phase5/ -v
 
 # With coverage
-pytest tests/ --cov=claudedd --cov-report=html
+pytest tests/ --cov=drugflow --cov-report=html
 ```
 
 **348 tests** covering all 5 phases.
@@ -157,7 +157,7 @@ The `data/sample/` directory contains 50 real drug molecules for testing:
 
 ```bash
 # Quick test with sample data
-claudedd pipeline quick-profile -i data/sample/sample_molecules.csv -o output/test
+drugflow pipeline quick-profile -i data/sample/sample_molecules.csv -o output/test
 ```
 
 ## License

@@ -3,8 +3,8 @@
 import pytest
 from rdkit import Chem
 
-from claudedd.core.exceptions import GenerationError
-from claudedd.phase3.generation.scaffold_decoration import (
+from drugflow.core.exceptions import GenerationError
+from drugflow.phase3.generation.scaffold_decoration import (
     decorate_scaffold,
     extract_core_scaffold,
     find_decoration_sites,

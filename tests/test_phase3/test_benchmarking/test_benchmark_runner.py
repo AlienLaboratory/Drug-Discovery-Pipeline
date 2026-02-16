@@ -3,8 +3,8 @@
 import pytest
 from rdkit import Chem
 
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
-from claudedd.phase3.benchmarking.benchmark_runner import (
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.phase3.benchmarking.benchmark_runner import (
     BenchmarkResult,
     BenchmarkStrategy,
     run_benchmark,

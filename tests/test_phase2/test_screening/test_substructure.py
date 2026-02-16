@@ -3,9 +3,9 @@
 import pytest
 from rdkit import Chem
 
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
-from claudedd.core.exceptions import ScreeningError
-from claudedd.phase2.screening.substructure import (
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.core.exceptions import ScreeningError
+from drugflow.phase2.screening.substructure import (
     parse_pattern,
     has_substructure,
     count_substructure_matches,

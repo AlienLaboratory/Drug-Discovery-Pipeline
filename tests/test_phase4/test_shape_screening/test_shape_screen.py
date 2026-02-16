@@ -4,9 +4,9 @@ import pytest
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
-from claudedd.core.exceptions import DockingError
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
-from claudedd.phase4.shape_screening.shape_screen import rank_by_shape, screen_by_shape
+from drugflow.core.exceptions import DockingError
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.phase4.shape_screening.shape_screen import rank_by_shape, screen_by_shape
 
 
 class TestScreenByShape:

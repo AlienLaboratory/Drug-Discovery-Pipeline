@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from claudedd.phase1.analysis.similarity import (
+from drugflow.phase1.analysis.similarity import (
     tanimoto_similarity,
     dice_similarity,
     cosine_similarity,

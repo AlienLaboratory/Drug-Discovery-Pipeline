@@ -3,8 +3,8 @@
 import pytest
 from rdkit import Chem
 
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
-from claudedd.phase2.scoring.ranking import (
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.phase2.scoring.ranking import (
     rank_molecules,
     get_top_candidates,
     flag_candidates,

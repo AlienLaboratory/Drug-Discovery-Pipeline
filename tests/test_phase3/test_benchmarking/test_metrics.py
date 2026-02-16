@@ -3,7 +3,7 @@
 import pytest
 from rdkit import Chem
 
-from claudedd.phase3.benchmarking.metrics import (
+from drugflow.phase3.benchmarking.metrics import (
     compute_all_metrics,
     compute_drug_likeness_rate,
     compute_internal_diversity,

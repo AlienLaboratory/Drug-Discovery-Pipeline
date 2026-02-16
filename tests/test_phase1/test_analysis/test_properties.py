@@ -3,7 +3,7 @@
 import pytest
 from rdkit import Chem
 
-from claudedd.phase1.analysis.properties import compute_properties
+from drugflow.phase1.analysis.properties import compute_properties
 
 
 def test_compute_properties_aspirin(aspirin_mol):

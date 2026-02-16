@@ -3,8 +3,8 @@
 import numpy as np
 import pytest
 
-from claudedd.core.exceptions import ModelError
-from claudedd.phase2.qsar.models import (
+from drugflow.core.exceptions import ModelError
+from drugflow.phase2.qsar.models import (
     QSARModel,
     train_model,
     _check_xgboost_available,

@@ -5,8 +5,8 @@ import os
 
 import pytest
 
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
-from claudedd.phase5.reporting.export import (
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.phase5.reporting.export import (
     create_provenance_record,
     export_project_json,
     export_results_csv,

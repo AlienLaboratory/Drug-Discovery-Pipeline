@@ -3,9 +3,9 @@
 import numpy as np
 import pytest
 
-from claudedd.core.exceptions import ModelError
-from claudedd.phase2.qsar.models import train_model
-from claudedd.phase2.qsar.persistence import save_model, load_model
+from drugflow.core.exceptions import ModelError
+from drugflow.phase2.qsar.models import train_model
+from drugflow.phase2.qsar.persistence import save_model, load_model
 
 
 @pytest.fixture

@@ -3,8 +3,8 @@
 import numpy as np
 import pytest
 
-from claudedd.core.exceptions import ModelError
-from claudedd.phase3.active_learning.uncertainty import (
+from drugflow.core.exceptions import ModelError
+from drugflow.phase3.active_learning.uncertainty import (
     compute_ensemble_uncertainty,
     compute_prediction_spread,
     rank_by_uncertainty,
@@ -13,7 +13,7 @@ from claudedd.phase3.active_learning.uncertainty import (
 
 def test_ensemble_uncertainty_rf(trained_rf_model, computed_dataset):
     """RF model produces uncertainty estimates."""
-    from claudedd.phase2.qsar.data_prep import extract_feature_matrix
+    from drugflow.phase2.qsar.data_prep import extract_feature_matrix
 
     X, _, _ = extract_feature_matrix(computed_dataset, feature_source="descriptors")
     uncertainties = compute_ensemble_uncertainty(trained_rf_model, X)
@@ -23,7 +23,7 @@ def test_ensemble_uncertainty_rf(trained_rf_model, computed_dataset):
 
 def test_prediction_spread_rf(trained_rf_model, computed_dataset):
     """RF model produces prediction spread."""
-    from claudedd.phase2.qsar.data_prep import extract_feature_matrix
+    from drugflow.phase2.qsar.data_prep import extract_feature_matrix
 
     X, _, _ = extract_feature_matrix(computed_dataset, feature_source="descriptors")
     spread = compute_prediction_spread(trained_rf_model, X)
@@ -42,7 +42,7 @@ def test_rank_by_uncertainty(trained_rf_model, computed_dataset):
 
 def test_uncertainty_unsupported_model(computed_dataset):
     """Non-ensemble model raises ModelError."""
-    from claudedd.phase2.qsar.data_prep import extract_feature_matrix
+    from drugflow.phase2.qsar.data_prep import extract_feature_matrix
 
     X, _, _ = extract_feature_matrix(computed_dataset, feature_source="descriptors")
 

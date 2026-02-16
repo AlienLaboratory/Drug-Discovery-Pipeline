@@ -2,8 +2,8 @@
 
 from rdkit import Chem
 
-from claudedd.core.models import MoleculeRecord, MoleculeStatus
-from claudedd.phase1.data.validators import validate_molecule, validate_dataset
+from drugflow.core.models import MoleculeRecord, MoleculeStatus
+from drugflow.phase1.data.validators import validate_molecule, validate_dataset
 
 
 def test_validate_valid_molecule(aspirin_record):

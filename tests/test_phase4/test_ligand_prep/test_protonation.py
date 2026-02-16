@@ -3,8 +3,8 @@
 import pytest
 from rdkit import Chem
 
-from claudedd.core.exceptions import DockingError
-from claudedd.phase4.ligand_prep.protonation import (
+from drugflow.core.exceptions import DockingError
+from drugflow.phase4.ligand_prep.protonation import (
     add_hydrogens_3d,
     enumerate_tautomers,
     get_dominant_tautomer,

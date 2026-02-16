@@ -2,14 +2,14 @@
 
 from click.testing import CliRunner
 
-from claudedd.cli.main import cli
+from drugflow.cli.main import cli
 
 
 def test_cli_help():
     runner = CliRunner()
     result = runner.invoke(cli, ["--help"])
     assert result.exit_code == 0
-    assert "ClaudeDD" in result.output
+    assert "DrugFlow" in result.output
 
 
 def test_cli_version():

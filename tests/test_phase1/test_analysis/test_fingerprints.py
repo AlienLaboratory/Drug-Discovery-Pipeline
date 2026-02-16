@@ -3,7 +3,7 @@
 import numpy as np
 from rdkit import Chem
 
-from claudedd.phase1.analysis.fingerprints import (
+from drugflow.phase1.analysis.fingerprints import (
     compute_maccs,
     compute_morgan,
     compute_rdkit_fp,

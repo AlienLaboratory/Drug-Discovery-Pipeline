@@ -3,8 +3,8 @@
 import pytest
 from rdkit import Chem
 
-from claudedd.core.exceptions import GenerationError
-from claudedd.phase3.generation.brics_enum import (
+from drugflow.core.exceptions import GenerationError
+from drugflow.phase3.generation.brics_enum import (
     build_fragment_library,
     decompose_dataset,
     decompose_molecule,

@@ -4,8 +4,8 @@ import pytest
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
-from claudedd.core.exceptions import DockingError
-from claudedd.phase4.docking.grid import (
+from drugflow.core.exceptions import DockingError
+from drugflow.phase4.docking.grid import (
     DockingBox,
     define_grid_from_coords,
     define_grid_from_ligand,

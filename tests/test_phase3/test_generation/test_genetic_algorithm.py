@@ -4,7 +4,7 @@ import pytest
 from rdkit import Chem
 from rdkit.Chem import Descriptors
 
-from claudedd.phase3.generation.genetic_algorithm import (
+from drugflow.phase3.generation.genetic_algorithm import (
     GeneticAlgorithmConfig,
     _crossover_brics,
     _evaluate_fitness,

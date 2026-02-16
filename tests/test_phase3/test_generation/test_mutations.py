@@ -5,8 +5,8 @@ import random
 import pytest
 from rdkit import Chem
 
-from claudedd.core.exceptions import GenerationError
-from claudedd.phase3.generation.mutations import (
+from drugflow.core.exceptions import GenerationError
+from drugflow.phase3.generation.mutations import (
     add_fragment,
     generate_mutations,
     mutate_atom,

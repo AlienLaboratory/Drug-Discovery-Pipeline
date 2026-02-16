@@ -5,7 +5,7 @@ import os
 
 import pytest
 
-from claudedd.phase5.workflows.hit_to_lead import run_hit_to_lead
+from drugflow.phase5.workflows.hit_to_lead import run_hit_to_lead
 
 
 class TestHitToLead:
@@ -47,4 +47,4 @@ class TestHitToLead:
         with open(os.path.join(output_dir, "report_summary.json")) as f:
             data = json.load(f)
         assert data["metadata"]["workflow"] == "hit_to_lead"
-        assert "claudedd_version" in data
+        assert "drugflow_version" in data

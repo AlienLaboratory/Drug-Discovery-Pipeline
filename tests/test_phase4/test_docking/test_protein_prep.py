@@ -5,8 +5,8 @@ import os
 import pytest
 from rdkit import Chem
 
-from claudedd.core.exceptions import DockingError
-from claudedd.phase4.docking.protein_prep import (
+from drugflow.core.exceptions import DockingError
+from drugflow.phase4.docking.protein_prep import (
     load_protein_pdb,
     prepare_protein,
     remove_heteroatoms,

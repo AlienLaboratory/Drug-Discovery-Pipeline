@@ -4,8 +4,8 @@ import pytest
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
-from claudedd.core.exceptions import DockingError
-from claudedd.phase4.ligand_prep.optimization import (
+from drugflow.core.exceptions import DockingError
+from drugflow.phase4.ligand_prep.optimization import (
     compute_strain_energy,
     optimize_all_conformers,
     optimize_conformer,
@@ -62,7 +62,7 @@ class TestStrainEnergy:
 
     def test_lowest_energy_has_zero_strain(self, multi_conf_mol):
         """Lowest-energy conformer has zero strain."""
-        from claudedd.phase4.ligand_prep.conformers import get_lowest_energy_conformer
+        from drugflow.phase4.ligand_prep.conformers import get_lowest_energy_conformer
         best_id, _ = get_lowest_energy_conformer(multi_conf_mol)
         strain = compute_strain_energy(multi_conf_mol, conf_id=best_id)
         assert abs(strain) < 1e-6

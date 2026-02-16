@@ -2,8 +2,8 @@
 
 import pytest
 
-from claudedd.core.exceptions import FileFormatError
-from claudedd.phase1.data.loaders import load_file, load_csv, load_smiles, load_sdf
+from drugflow.core.exceptions import FileFormatError
+from drugflow.phase1.data.loaders import load_file, load_csv, load_smiles, load_sdf
 
 
 def test_load_csv_basic(sample_csv_path):

@@ -3,8 +3,8 @@
 import pytest
 import numpy as np
 
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
-from claudedd.phase2.scoring.multi_objective import (
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.phase2.scoring.multi_objective import (
     compute_composite_score,
     normalize_scores_minmax,
     compute_composite_score_dataset,

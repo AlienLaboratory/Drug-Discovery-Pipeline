@@ -2,7 +2,7 @@
 
 from rdkit import Chem
 
-from claudedd.phase1.analysis.filters import (
+from drugflow.phase1.analysis.filters import (
     apply_lipinski,
     apply_pains,
     apply_veber,

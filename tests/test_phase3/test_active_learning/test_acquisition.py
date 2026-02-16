@@ -2,7 +2,7 @@
 
 import pytest
 
-from claudedd.phase3.active_learning.acquisition import (
+from drugflow.phase3.active_learning.acquisition import (
     balanced_acquisition,
     diversity_acquisition,
     greedy_acquisition,

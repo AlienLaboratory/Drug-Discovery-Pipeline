@@ -2,7 +2,7 @@
 
 from rdkit import Chem
 
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
 
 
 def test_molecule_record_creation(aspirin_mol):

@@ -3,8 +3,8 @@
 import pytest
 from rdkit import Chem
 
-from claudedd.core.exceptions import ScreeningError
-from claudedd.phase2.screening.pharmacophore import (
+from drugflow.core.exceptions import ScreeningError
+from drugflow.phase2.screening.pharmacophore import (
     get_pharmacophore_features,
     get_available_feature_families,
     check_pharmacophore_requirements,
@@ -63,7 +63,7 @@ def test_screen_pharmacophore(sample_dataset):
 
 def test_screen_pharmacophore_empty_raises():
     """Empty requirements raises ScreeningError."""
-    from claudedd.core.models import MoleculeDataset
+    from drugflow.core.models import MoleculeDataset
     ds = MoleculeDataset(records=[], name="empty")
     with pytest.raises(ScreeningError, match="must not be empty"):
         screen_pharmacophore(ds, required_features={})
@@ -71,7 +71,7 @@ def test_screen_pharmacophore_empty_raises():
 
 def test_screen_pharmacophore_invalid_family():
     """Unknown feature family raises ScreeningError."""
-    from claudedd.core.models import MoleculeDataset
+    from drugflow.core.models import MoleculeDataset
     ds = MoleculeDataset(records=[], name="empty")
     with pytest.raises(ScreeningError, match="Unknown feature family"):
         screen_pharmacophore(ds, required_features={"FakeFamily": 1})

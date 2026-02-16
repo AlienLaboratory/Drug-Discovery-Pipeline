@@ -3,9 +3,9 @@
 import pytest
 from rdkit import Chem
 
-from claudedd.core.exceptions import ScoringError
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
-from claudedd.phase2.scoring.sa_score import (
+from drugflow.core.exceptions import ScoringError
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.phase2.scoring.sa_score import (
     compute_sa_score,
     normalize_sa_score,
     compute_sa_score_dataset,

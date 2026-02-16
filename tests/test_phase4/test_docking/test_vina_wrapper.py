@@ -8,13 +8,13 @@ import pytest
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
-from claudedd.core.exceptions import DockingError
-from claudedd.phase4.docking.vina_wrapper import (
+from drugflow.core.exceptions import DockingError
+from drugflow.phase4.docking.vina_wrapper import (
     _check_meeko_available,
     _check_vina_available,
     dock_vina,
 )
-from claudedd.phase4.docking.grid import DockingBox
+from drugflow.phase4.docking.grid import DockingBox
 
 
 class TestVinaAvailability:

@@ -5,7 +5,7 @@ import os
 
 import pytest
 
-from claudedd.phase5.workflows.denovo_design import run_denovo_design
+from drugflow.phase5.workflows.denovo_design import run_denovo_design
 
 
 class TestDeNovoDesign:

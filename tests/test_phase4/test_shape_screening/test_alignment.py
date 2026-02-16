@@ -4,8 +4,8 @@ import pytest
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
-from claudedd.core.exceptions import DockingError
-from claudedd.phase4.shape_screening.alignment import (
+from drugflow.core.exceptions import DockingError
+from drugflow.phase4.shape_screening.alignment import (
     align_molecules_crippen,
     align_molecules_o3a,
     align_to_best_conformer,

@@ -3,8 +3,8 @@
 import pytest
 from rdkit import Chem
 
-from claudedd.core.models import MoleculeRecord, MoleculeStatus
-from claudedd.phase2.scoring.drug_likeness import (
+from drugflow.core.models import MoleculeRecord, MoleculeStatus
+from drugflow.phase2.scoring.drug_likeness import (
     compute_drug_likeness,
     compute_drug_likeness_dataset,
 )

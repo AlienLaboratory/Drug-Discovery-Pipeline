@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from claudedd.phase2.qsar.evaluation import (
+from drugflow.phase2.qsar.evaluation import (
     evaluate_model,
     cross_validate,
     y_randomization_test,

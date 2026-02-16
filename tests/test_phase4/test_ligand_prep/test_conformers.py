@@ -4,9 +4,9 @@ import pytest
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
-from claudedd.core.exceptions import DockingError
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
-from claudedd.phase4.ligand_prep.conformers import (
+from drugflow.core.exceptions import DockingError
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.phase4.ligand_prep.conformers import (
     generate_conformers,
     generate_conformers_dataset,
     get_conformer_energies,

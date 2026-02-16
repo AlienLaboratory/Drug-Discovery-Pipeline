@@ -3,8 +3,8 @@
 import numpy as np
 import pytest
 
-from claudedd.core.exceptions import ModelError
-from claudedd.phase2.qsar.data_prep import (
+from drugflow.core.exceptions import ModelError
+from drugflow.phase2.qsar.data_prep import (
     extract_feature_matrix,
     extract_labels,
     random_split,

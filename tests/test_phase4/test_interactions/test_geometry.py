@@ -4,8 +4,8 @@ import numpy as np
 import pytest
 from rdkit import Chem
 
-from claudedd.core.exceptions import DockingError
-from claudedd.phase4.interactions.geometry import (
+from drugflow.core.exceptions import DockingError
+from drugflow.phase4.interactions.geometry import (
     compute_bounding_box,
     compute_molecular_volume,
     measure_angle,

@@ -3,9 +3,9 @@
 import numpy as np
 import pytest
 
-from claudedd.core.exceptions import ScreeningError
-from claudedd.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
-from claudedd.phase2.screening.similarity_screen import (
+from drugflow.core.exceptions import ScreeningError
+from drugflow.core.models import MoleculeDataset, MoleculeRecord, MoleculeStatus
+from drugflow.phase2.screening.similarity_screen import (
     compute_max_similarity,
     compute_mean_similarity,
     extract_reference_fps,

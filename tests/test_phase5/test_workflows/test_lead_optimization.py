@@ -5,7 +5,7 @@ import os
 
 import pytest
 
-from claudedd.phase5.workflows.lead_optimization import run_lead_optimization
+from drugflow.phase5.workflows.lead_optimization import run_lead_optimization
 
 
 ASPIRIN_SMILES = "CC(=O)Oc1ccccc1C(=O)O"
