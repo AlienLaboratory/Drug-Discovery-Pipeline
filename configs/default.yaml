@@ -1,0 +1,57 @@
+# ClaudeDD Pipeline Configuration
+# Copy this file and customize for your analysis
+
+name: default_run
+output_dir: ./output
+log_level: INFO
+n_jobs: 1
+random_seed: 42
+
+# Input
+input_file: ""          # Path to your molecule file (CSV, SDF, SMI)
+input_format: auto      # auto-detect from extension
+smiles_column: smiles   # Column name in CSV
+id_column: id           # ID column name in CSV
+
+# Standardization
+standardize: true
+strip_salts: true
+neutralize: true
+remove_stereo: false
+
+# Drug-likeness Filters
+filters:
+  lipinski: true
+  lipinski_max_violations: 1
+  veber: false
+  pains: true
+  brenk: false
+
+# Descriptors
+descriptors:
+  compute_all: false
+  descriptor_names:
+    - MolWt
+    - MolLogP
+    - NumHDonors
+    - NumHAcceptors
+    - TPSA
+    - NumRotatableBonds
+    - RingCount
+    - FractionCSP3
+    - HeavyAtomCount
+
+# Fingerprints
+fingerprints:
+  morgan: true
+  morgan_radius: 2
+  morgan_nbits: 2048
+  maccs: true
+  rdkit_fp: false
+  rdkit_fp_nbits: 2048
+
+# Visualization
+visualization:
+  output_dir: ./output/plots
+  format: png
+  dpi: 300
