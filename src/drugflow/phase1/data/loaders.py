@@ -157,10 +157,30 @@ def load_csv(
         if smiles_column.lower() in col_map:
             smiles_column = col_map[smiles_column.lower()]
         else:
-            raise FileFormatError(
-                f"SMILES column '{smiles_column}' not found in {path}. "
-                f"Available columns: {list(df.columns)}"
-            )
+            # Auto-detect common SMILES column names
+            common_names = [
+                "canonical_smiles", "smiles", "smi", "SMILES",
+                "Canonical_SMILES", "molecule_smiles", "mol_smiles",
+                "structure", "isosmiles", "isomeric_smiles",
+            ]
+            found = None
+            for name in common_names:
+                if name in df.columns:
+                    found = name
+                    break
+                if name.lower() in col_map:
+                    found = col_map[name.lower()]
+                    break
+            if found:
+                smiles_column = found
+                logger.info(
+                    f"Auto-detected SMILES column: '{smiles_column}'"
+                )
+            else:
+                raise FileFormatError(
+                    f"SMILES column '{smiles_column}' not found in {path}. "
+                    f"Available columns: {list(df.columns)}"
+                )
 
     records = []
     for idx, row in progress_bar(df.iterrows(), total=len(df), desc="Loading CSV"):
