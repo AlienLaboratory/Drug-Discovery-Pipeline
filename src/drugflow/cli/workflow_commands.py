@@ -189,3 +189,63 @@ def optimize(ctx, lead, output_dir, n_analogs, top_n, seed):
     click.echo(f"  - all_analogs.csv")
     click.echo(f"  - report_summary.json")
     click.echo("=" * 60)
+
+
+@workflow.command("research-report")
+@click.option("--candidates", "-c", required=True,
+              type=click.Path(exists=True),
+              help="CSV file with novel candidate molecules.")
+@click.option("--training-data", "-t", required=True,
+              type=click.Path(exists=True),
+              help="CSV file with curated training data.")
+@click.option("--output-dir", "-o", default="./research_report",
+              type=click.Path(),
+              help="Output directory for the research report.")
+@click.option("--model", "-m", "model_path", default=None,
+              type=click.Path(exists=True),
+              help="Trained QSAR model (.joblib) for metadata.")
+@click.option("--model-comparison", default=None,
+              type=click.Path(exists=True),
+              help="Model comparison CSV from `model compare`.")
+@click.option("--target-name", default="Unknown Target",
+              help="Name of the biological target.")
+@click.option("--campaign-name", default="Research Campaign",
+              help="Name of the research campaign.")
+@click.pass_context
+def research_report(ctx, candidates, training_data, output_dir,
+                    model_path, model_comparison, target_name, campaign_name):
+    """Generate a comprehensive research report for a drug discovery campaign.
+
+    Assembles all results into a structured folder with summary,
+    candidate CSVs, statistics, and visualizations.
+    """
+    from drugflow.phase5.reporting.research_report import generate_research_report
+
+    click.echo("=" * 60)
+    click.echo("DrugFlow Research Report Generator")
+    click.echo("=" * 60)
+    click.echo(f"Target: {target_name}")
+    click.echo(f"Campaign: {campaign_name}")
+
+    result_dir = generate_research_report(
+        candidates_path=candidates,
+        training_data_path=training_data,
+        output_dir=output_dir,
+        model_path=model_path,
+        model_comparison_path=model_comparison,
+        target_name=target_name,
+        campaign_name=campaign_name,
+    )
+
+    # List output files
+    click.echo(f"\nReport generated at: {result_dir}")
+    import os
+    for root, dirs, files in os.walk(result_dir):
+        level = root.replace(result_dir, "").count(os.sep)
+        indent = "  " * level
+        folder = os.path.basename(root)
+        if level > 0:
+            click.echo(f"{indent}{folder}/")
+        for f in files:
+            click.echo(f"{indent}  - {f}")
+    click.echo("=" * 60)

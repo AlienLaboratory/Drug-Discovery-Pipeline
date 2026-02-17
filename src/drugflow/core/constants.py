@@ -105,7 +105,7 @@ PHARMACOPHORE_FEATURE_FAMILIES = [
 ]
 
 # QSAR model types
-QSAR_MODEL_TYPES = ["random_forest", "gradient_boosting", "xgboost"]
+QSAR_MODEL_TYPES = ["random_forest", "gradient_boosting", "xgboost", "svr"]
 QSAR_TASK_TYPES = ["regression", "classification"]
 
 # Default model hyperparameters
@@ -124,6 +124,12 @@ QSAR_DEFAULT_PARAMS = {
         "learning_rate": 0.1,
         "subsample": 0.8,
         "random_state": 42,
+    },
+    "svr": {
+        "kernel": "rbf",
+        "C": 1.0,
+        "epsilon": 0.1,
+        "gamma": "scale",
     },
 }
 

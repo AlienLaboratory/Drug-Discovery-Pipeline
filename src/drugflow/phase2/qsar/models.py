@@ -81,6 +81,20 @@ def _get_estimator(
         else:
             return xgb.XGBClassifier(**default_params)
 
+    elif model_type == "svr":
+        if task == "regression":
+            from sklearn.svm import SVR
+            return SVR(**default_params)
+        else:
+            from sklearn.svm import SVC
+            # SVC doesn't accept 'epsilon' — remove SVR-specific params
+            svc_params = {
+                k: v for k, v in default_params.items()
+                if k not in ("epsilon",)
+            }
+            svc_params["probability"] = True
+            return SVC(**svc_params)
+
     else:
         raise ModelError(
             f"Unknown model type: '{model_type}'. "
