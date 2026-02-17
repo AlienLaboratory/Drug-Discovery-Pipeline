@@ -44,6 +44,53 @@ SIMILARITY_METRICS = [
     "kulczynski", "mcconnaughey",
 ]
 
+# ── Bioactivity Data Constants ────────────────────────────────
+
+# Supported ChEMBL activity types
+BIOACTIVITY_TYPES = ["IC50", "Ki", "Kd", "EC50"]
+BIOACTIVITY_DEFAULT_TYPE = "IC50"
+
+# ChEMBL API pagination
+CHEMBL_PAGE_SIZE = 1000
+CHEMBL_REQUEST_DELAY = 0.5  # seconds between paginated requests
+
+# Unit normalization target
+BIOACTIVITY_TARGET_UNIT = "nM"
+
+# Relation filter defaults
+BIOACTIVITY_EXACT_RELATIONS = {"="}
+BIOACTIVITY_PERMISSIVE_RELATIONS = {"=", "<", "<="}
+
+# Outlier removal IQR multiplier
+BIOACTIVITY_IQR_MULTIPLIER = 1.5
+
+# Default IC50 thresholds (nM) for activity labeling
+BIOACTIVITY_ACTIVE_THRESHOLD_NM = 1000.0     # IC50 < 1 uM = active
+BIOACTIVITY_INACTIVE_THRESHOLD_NM = 10000.0  # IC50 >= 10 uM = inactive
+
+# Confidence scoring weights
+BIOACTIVITY_CONFIDENCE_WEIGHTS = {
+    "exact_measurement": 0.4,
+    "pchembl_available": 0.3,
+    "trusted_assay": 0.2,
+    "unit_consistent": 0.1,
+}
+
+# Metadata fields stored from ChEMBL activity records
+CHEMBL_ACTIVITY_FIELDS = [
+    "pchembl_value",
+    "assay_chembl_id",
+    "assay_description",
+    "assay_type",
+    "target_chembl_id",
+    "document_chembl_id",
+    "molecule_chembl_id",
+    "standard_type",
+    "standard_value",
+    "standard_units",
+    "standard_relation",
+]
+
 # ── Phase 2 Constants ──────────────────────────────────────────
 
 # Screening defaults
