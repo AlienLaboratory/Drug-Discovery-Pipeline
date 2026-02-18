@@ -1,0 +1,351 @@
+{
+  "study": "BCL-2 Senolytic Drug Discovery",
+  "target": "BCL-2 (PDB: 6O0K)",
+  "generated": "2026-02-18T15:24:43.732850",
+  "method": "vina",
+  "summary": {
+    "vina": {
+      "n": 30,
+      "mean": -3.171,
+      "std": 0.203,
+      "min": -3.597,
+      "max": -2.815,
+      "median": -3.184,
+      "q1": -3.253,
+      "q3": -3.006,
+      "iqr": 0.247,
+      "n_strong": 2,
+      "n_moderate": 22,
+      "n_weak": 6
+    },
+    "potency": {
+      "column": "predicted_pIC50",
+      "mean": 7.169,
+      "std": 0.146,
+      "min": 7.01,
+      "max": 7.454,
+      "median": 7.141,
+      "ic50_nm_min": 35.1,
+      "ic50_nm_max": 97.8
+    },
+    "admet": {
+      "mean": 0.762,
+      "std": 0.05,
+      "min": 0.659,
+      "max": 0.837,
+      "favorable": 26,
+      "moderate": 4,
+      "poor": 0
+    },
+    "risk_flags": {
+      "herg": {
+        "green": 0,
+        "yellow": 3,
+        "red": 27
+      },
+      "ames": {
+        "green": 30,
+        "yellow": 0,
+        "red": 0
+      },
+      "hepatotox": {
+        "green": 19,
+        "yellow": 11,
+        "red": 0
+      },
+      "cyp": {
+        "green": 21,
+        "yellow": 9,
+        "red": 0
+      }
+    },
+    "properties": {
+      "MolWt": {
+        "mean": 501.06,
+        "std": 49.86,
+        "min": 407.56,
+        "max": 618.91
+      },
+      "LogP": {
+        "mean": 4.87,
+        "std": 1.07,
+        "min": 3.03,
+        "max": 7.31
+      },
+      "QED": {
+        "mean": 0.6,
+        "std": 0.12,
+        "min": 0.35,
+        "max": 0.85
+      },
+      "RingCount": {
+        "mean": 6.57,
+        "std": 0.63,
+        "min": 6.0,
+        "max": 8.0
+      }
+    },
+    "correlations": {
+      "vina_vs_pic50": {
+        "spearman_rho": -0.048,
+        "p_value": 0.7999
+      },
+      "vina_vs_admet": {
+        "spearman_rho": 0.062,
+        "p_value": 0.7449
+      }
+    }
+  },
+  "population_admet": {
+    "total": 397,
+    "favorable": 185,
+    "moderate": 15,
+    "poor": 197,
+    "mean_score": 0.573,
+    "score_range": [
+      0.219,
+      0.963
+    ],
+    "absorption_mean": 0.56,
+    "distribution_mean": 0.638,
+    "metabolism_mean": 0.554,
+    "excretion_mean": 0.64,
+    "toxicity_mean": 0.541
+  },
+  "original_study": {
+    "study": "BCL-2 Senolytic Drug Discovery \u2014 Docking Study",
+    "target": "BCL-2 (PDB: 6O0K)",
+    "method": "vina",
+    "total_novel_candidates": 30,
+    "scoring_column": "vina_score",
+    "top_10": [
+      {
+        "rank": 1,
+        "smiles": "CN1CC=C(c2ccccc2[C@@H]2CN(C)CCN2C(=O)C2CC3(CCN([C@H]4CC[C@](C)(O)CC4)CC3)C2)CC1",
+        "admet_score": 0.8,
+        "admet_class": "favorable",
+        "predicted_pIC50": 7.042533921118327,
+        "vina_score": -3.597
+      },
+      {
+        "rank": 2,
+        "smiles": "CN1CC=C(c2ccccc2C2CC3(CCN(C(=O)C4CC5(CCN(C6CCOCC6)CC5)C4)CC3)C2)CC1",
+        "admet_score": 0.722,
+        "admet_class": "favorable",
+        "predicted_pIC50": 7.2917984546580925,
+        "vina_score": -3.508
+      },
+      {
+        "rank": 3,
+        "smiles": "CN1CC=C(c2ccccc2[C@H]2CCCN2C(=O)C2CC3(CCN(c4ccccc4C4=CCN(C)CC4)CC3)C2)CC1",
+        "admet_score": 0.672,
+        "admet_class": "moderate",
+        "predicted_pIC50": 7.369919303302259,
+        "vina_score": -3.494
+      },
+      {
+        "rank": 4,
+        "smiles": "CN1CCN(C(=O)C2CC3(CCN(C4CCOCC4)CC3)C2)[C@H](c2cnc3[nH]ccc3c2)C1",
+        "admet_score": 0.788,
+        "admet_class": "favorable",
+        "predicted_pIC50": 7.023976163239537,
+        "vina_score": -3.427
+      },
+      {
+        "rank": 5,
+        "smiles": "CN1CC=C(c2ccccc2N2CCC3(CC2)CC(C(=O)N2CCN(C)C[C@H]2C2CC2)C3)CC1",
+        "admet_score": 0.788,
+        "admet_class": "favorable",
+        "predicted_pIC50": 7.062134751139977,
+        "vina_score": -3.395
+      },
+      {
+        "rank": 6,
+        "smiles": "CN1CC=C(c2ccccc2N2CCC3(CC2)CC(C(=O)N2CCC[C@@H]2C2CC2)C3)CC1",
+        "admet_score": 0.788,
+        "admet_class": "favorable",
+        "predicted_pIC50": 7.048105676139975,
+        "vina_score": -3.389
+      },
+      {
+        "rank": 7,
+        "smiles": "CN1CC=C(c2ccccc2C2CC3(CCN(C(=O)C4CC5(CCN([C@H]6CC[C@](C)(O)CC6)CC5)C4)CC3)C2)CC1",
+        "admet_score": 0.709,
+        "admet_class": "favorable",
+        "predicted_pIC50": 7.397493922661789,
+        "vina_score": -3.383
+      },
+      {
+        "rank": 8,
+        "smiles": "CC(C)C1CC2(CCN(C(=O)C3CC4(CCN(c5ccccc5C5=CCN(C)CC5)CC4)C3)CC2)C1",
+        "admet_score": 0.737,
+        "admet_class": "favorable",
+        "predicted_pIC50": 7.184243403401881,
+        "vina_score": -3.255
+      },
+      {
+        "rank": 9,
+        "smiles": "CN1CC=C(c2ccccc2N2CCC3(CC2)CC(C(=O)N2CCC4(CC2)CC(N(C)C)C4)C3)CC1",
+        "admet_score": 0.788,
+        "admet_class": "favorable",
+        "predicted_pIC50": 7.046020670147908,
+        "vina_score": -3.246
+      },
+      {
+        "rank": 10,
+        "smiles": "CN1CC=C(c2ccccc2[C@@H]2CN(C)CCN2C(=O)C2CC3(CCN(C4CC4)CC3)C2)CC1",
+        "admet_score": 0.825,
+        "admet_class": "favorable",
+        "predicted_pIC50": 7.018923991118331,
+        "vina_score": -3.221
+      }
+    ]
+  },
+  "top_candidates": [
+    {
+      "rank": 1,
+      "record_id": "cand_233",
+      "smiles": "CN1CC=C(c2ccccc2[C@@H]2CN(C)CCN2C(=O)C2CC3(CCN([C@H]4CC[C@](C)(O)CC4)CC3)C2)CC1",
+      "vina_score": -3.597,
+      "predicted_pIC50": 7.042533921118327,
+      "predicted_IC50_nM": 90.67051424692472,
+      "admet_score": 0.8,
+      "admet_class": "favorable",
+      "MolWt": 534.7890000000003,
+      "LogP": 4.406400000000003,
+      "QED": 0.6204610648129385
+    },
+    {
+      "rank": 2,
+      "record_id": "cand_209",
+      "smiles": "CN1CC=C(c2ccccc2C2CC3(CCN(C(=O)C4CC5(CCN(C6CCOCC6)CC5)C4)CC3)C2)CC1",
+      "vina_score": -3.508,
+      "predicted_pIC50": 7.2917984546580925,
+      "predicted_IC50_nM": 51.074196771752405,
+      "admet_score": 0.722,
+      "admet_class": "favorable",
+      "MolWt": 531.7850000000004,
+      "LogP": 5.562900000000006,
+      "QED": 0.5095447862001807
+    },
+    {
+      "rank": 3,
+      "record_id": "cand_204",
+      "smiles": "CN1CC=C(c2ccccc2[C@H]2CCCN2C(=O)C2CC3(CCN(c4ccccc4C4=CCN(C)CC4)CC3)C2)CC1",
+      "vina_score": -3.494,
+      "predicted_pIC50": 7.369919303302259,
+      "predicted_IC50_nM": 42.66587893386635,
+      "admet_score": 0.672,
+      "admet_class": "moderate",
+      "MolWt": 564.8180000000001,
+      "LogP": 6.484700000000008,
+      "QED": 0.4156610564072407
+    },
+    {
+      "rank": 4,
+      "record_id": "cand_236",
+      "smiles": "CN1CCN(C(=O)C2CC3(CCN(C4CCOCC4)CC3)C2)[C@H](c2cnc3[nH]ccc3c2)C1",
+      "vina_score": -3.427,
+      "predicted_pIC50": 7.023976163239537,
+      "predicted_IC50_nM": 94.6289098124129,
+      "admet_score": 0.788,
+      "admet_class": "favorable",
+      "MolWt": 451.6150000000002,
+      "LogP": 3.049200000000001,
+      "QED": 0.7771786496185912
+    },
+    {
+      "rank": 5,
+      "record_id": "cand_228",
+      "smiles": "CN1CC=C(c2ccccc2N2CCC3(CC2)CC(C(=O)N2CCN(C)C[C@H]2C2CC2)C3)CC1",
+      "vina_score": -3.395,
+      "predicted_pIC50": 7.062134751139977,
+      "predicted_IC50_nM": 86.66929200519819,
+      "admet_score": 0.788,
+      "admet_class": "favorable",
+      "MolWt": 462.6820000000004,
+      "LogP": 3.9547000000000025,
+      "QED": 0.6777488209813847
+    },
+    {
+      "rank": 6,
+      "record_id": "cand_231",
+      "smiles": "CN1CC=C(c2ccccc2N2CCC3(CC2)CC(C(=O)N2CCC[C@@H]2C2CC2)C3)CC1",
+      "vina_score": -3.389,
+      "predicted_pIC50": 7.048105676139975,
+      "predicted_IC50_nM": 89.5146924463728,
+      "admet_score": 0.788,
+      "admet_class": "favorable",
+      "MolWt": 433.6400000000003,
+      "LogP": 4.803100000000005,
+      "QED": 0.6822069293871337
+    },
+    {
+      "rank": 7,
+      "record_id": "cand_201",
+      "smiles": "CN1CC=C(c2ccccc2C2CC3(CCN(C(=O)C4CC5(CCN([C@H]6CC[C@](C)(O)CC6)CC5)C4)CC3)C2)CC1",
+      "vina_score": -3.383,
+      "predicted_pIC50": 7.397493922661789,
+      "predicted_IC50_nM": 40.04110714790555,
+      "admet_score": 0.709,
+      "admet_class": "favorable",
+      "MolWt": 559.8390000000003,
+      "LogP": 6.077500000000007,
+      "QED": 0.4859802634331077
+    },
+    {
+      "rank": 8,
+      "record_id": "cand_219",
+      "smiles": "CC(C)C1CC2(CCN(C(=O)C3CC4(CCN(c5ccccc5C5=CCN(C)CC5)CC4)C3)CC2)C1",
+      "vina_score": -3.255,
+      "predicted_pIC50": 7.184243403401881,
+      "predicted_IC50_nM": 65.42693814071335,
+      "admet_score": 0.737,
+      "admet_class": "favorable",
+      "MolWt": 489.7480000000005,
+      "LogP": 6.076900000000007,
+      "QED": 0.5130124264060422
+    },
+    {
+      "rank": 9,
+      "record_id": "cand_232",
+      "smiles": "CN1CC=C(c2ccccc2N2CCC3(CC2)CC(C(=O)N2CCC4(CC2)CC(N(C)C)C4)C3)CC1",
+      "vina_score": -3.246,
+      "predicted_pIC50": 7.046020670147908,
+      "predicted_IC50_nM": 89.94547711643128,
+      "admet_score": 0.788,
+      "admet_class": "favorable",
+      "MolWt": 490.7360000000005,
+      "LogP": 4.734900000000005,
+      "QED": 0.610192875056474
+    },
+    {
+      "rank": 10,
+      "record_id": "cand_238",
+      "smiles": "CN1CC=C(c2ccccc2[C@@H]2CN(C)CCN2C(=O)C2CC3(CCN(C4CC4)CC3)C2)CC1",
+      "vina_score": -3.221,
+      "predicted_pIC50": 7.018923991118331,
+      "predicted_IC50_nM": 95.73616111117248,
+      "admet_score": 0.825,
+      "admet_class": "favorable",
+      "MolWt": 462.6820000000004,
+      "LogP": 3.875200000000003,
+      "QED": 0.6794886875323441
+    }
+  ],
+  "plots_generated": [
+    "01_ranked_candidates_table.png",
+    "02_vina_score_distribution.png",
+    "03_admet_radar_top5.png",
+    "04_score_correlations.png",
+    "05_admet_class_distribution.png",
+    "06_risk_flag_heatmap.png",
+    "07_integrated_dashboard.png",
+    "08_summary_statistics_table.png"
+  ],
+  "interpretation": {
+    "binding_quality": "Moderate binding predicted (best: -3.60 kcal/mol). These are preliminary scores; re-docking with higher exhaustiveness and a fully prepared protein may improve results.",
+    "admet_quality": "87% of docked candidates have favorable ADMET profiles (mean score: 0.762)",
+    "overall_assessment": "Docking study screened 30 candidates against BCL-2 (PDB: 6O0K). Results provide a computational ranking for prioritizing experimental validation. Further optimization through higher-exhaustiveness re-docking, MD simulations, or lead optimization is recommended for top candidates."
+  }
+}

@@ -661,6 +661,41 @@ def main():
     # Step 9: Generate report
     report = generate_report(docking_dataset, args.output_dir, method_used)
 
+    # Step 10: Generate docking visualization report
+    print_header("Step 10: Generating Docking Visualization Report")
+    try:
+        from drugflow.phase5.reporting.docking_report import generate_docking_report
+
+        docking_csv = os.path.join(args.output_dir, "docking_results.csv")
+        admet_csv = os.path.join(args.output_dir, "admet_all_candidates.csv")
+        study_json = os.path.join(args.output_dir, "study_report.json")
+        report_dir = os.path.join(args.output_dir, "report")
+
+        generate_docking_report(
+            docking_results_path=docking_csv,
+            output_dir=report_dir,
+            admet_all_path=admet_csv if os.path.exists(admet_csv) else None,
+            study_report_path=study_json if os.path.exists(study_json) else None,
+            target_name=f"BCL-2 (PDB: {args.pdb_id})",
+            campaign_name="BCL-2 Senolytic Drug Discovery — Docking Study",
+        )
+
+        # List report files
+        print(f"  Visualization report saved to: {report_dir}")
+        for root, dirs, files in os.walk(report_dir):
+            level = root.replace(report_dir, "").count(os.sep)
+            indent = "    " + "  " * level
+            folder = os.path.basename(root)
+            if level > 0:
+                print(f"{indent}{folder}/")
+            for f in sorted(files):
+                fpath = os.path.join(root, f)
+                size_kb = os.path.getsize(fpath) / 1024
+                print(f"{indent}  {f} ({size_kb:.1f} KB)")
+    except Exception as e:
+        print(f"  WARNING: Docking report generation failed: {e}")
+        print("  (Docking results CSV and JSON are still available)")
+
     print_header("Study Complete!")
     print(f"  Method used: {method_used}")
     print(f"  Results directory: {args.output_dir}")

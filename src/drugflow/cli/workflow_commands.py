@@ -249,3 +249,78 @@ def research_report(ctx, candidates, training_data, output_dir,
         for f in files:
             click.echo(f"{indent}  - {f}")
     click.echo("=" * 60)
+
+
+@workflow.command("docking-report")
+@click.option("--input-dir", "-i", required=True,
+              type=click.Path(exists=True),
+              help="Directory containing docking_results.csv (and optionally "
+                   "admet_all_candidates.csv, study_report.json).")
+@click.option("--output-dir", "-o", default=None,
+              type=click.Path(),
+              help="Output directory for report. Defaults to INPUT_DIR/report.")
+@click.option("--target-name", default="Unknown Target",
+              help="Name of the biological target (e.g. 'BCL-2 (PDB: 6O0K)').")
+@click.option("--campaign-name", default="Docking Study",
+              help="Name of the research campaign.")
+@click.pass_context
+def docking_report(ctx, input_dir, output_dir, target_name, campaign_name):
+    """Generate publication-quality docking results report.
+
+    Produces 8 PNG visualizations, ranked CSV with composite scores,
+    enhanced JSON report, text summary, and statistics CSV from a
+    completed docking study.
+    """
+    import os
+
+    from drugflow.phase5.reporting.docking_report import generate_docking_report
+
+    click.echo("=" * 60)
+    click.echo("DrugFlow Docking Report Generator")
+    click.echo("=" * 60)
+    click.echo(f"Target: {target_name}")
+    click.echo(f"Campaign: {campaign_name}")
+    click.echo(f"Input: {input_dir}")
+
+    # Auto-detect files
+    docking_csv = os.path.join(input_dir, "docking_results.csv")
+    if not os.path.isfile(docking_csv):
+        click.echo(f"ERROR: {docking_csv} not found.", err=True)
+        return
+
+    admet_csv = os.path.join(input_dir, "admet_all_candidates.csv")
+    if not os.path.isfile(admet_csv):
+        admet_csv = None
+
+    study_json = os.path.join(input_dir, "study_report.json")
+    if not os.path.isfile(study_json):
+        study_json = None
+
+    if output_dir is None:
+        output_dir = os.path.join(input_dir, "report")
+
+    click.echo(f"Output: {output_dir}")
+    click.echo("")
+
+    result_dir = generate_docking_report(
+        docking_results_path=docking_csv,
+        output_dir=output_dir,
+        admet_all_path=admet_csv,
+        study_report_path=study_json,
+        target_name=target_name,
+        campaign_name=campaign_name,
+    )
+
+    # List output files
+    click.echo(f"\nReport generated at: {result_dir}")
+    for root, dirs, files in os.walk(result_dir):
+        level = root.replace(result_dir, "").count(os.sep)
+        indent = "  " * level
+        folder = os.path.basename(root)
+        if level > 0:
+            click.echo(f"{indent}{folder}/")
+        for f in sorted(files):
+            fpath = os.path.join(root, f)
+            size_kb = os.path.getsize(fpath) / 1024
+            click.echo(f"{indent}  - {f} ({size_kb:.1f} KB)")
+    click.echo("=" * 60)
