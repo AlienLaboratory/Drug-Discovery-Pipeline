@@ -46,6 +46,7 @@ from drugflow.cli.generate_commands import generate  # noqa: E402
 from drugflow.cli.benchmark_commands import benchmark  # noqa: E402
 from drugflow.cli.dock_commands import dock  # noqa: E402
 from drugflow.cli.workflow_commands import workflow  # noqa: E402
+from drugflow.cli.admet_commands import admet  # noqa: E402
 
 cli.add_command(data)
 cli.add_command(analyze)
@@ -57,6 +58,7 @@ cli.add_command(generate)
 cli.add_command(benchmark)
 cli.add_command(dock)
 cli.add_command(workflow)
+cli.add_command(admet)
 
 
 def main():

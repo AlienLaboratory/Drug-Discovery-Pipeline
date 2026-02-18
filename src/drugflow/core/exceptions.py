@@ -61,3 +61,9 @@ class GenerationError(ClaudeDiscoveryError):
 
 class DockingError(ClaudeDiscoveryError):
     """Raised when docking, ligand prep, or structure-based analysis fails."""
+
+
+# Phase 5 exceptions
+
+class ADMETError(ClaudeDiscoveryError):
+    """Raised when ADMET prediction or scoring fails."""

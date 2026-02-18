@@ -251,3 +251,129 @@ HBOND_DONORS = {7, 8}    # N, O
 HBOND_ACCEPTORS = {7, 8, 9, 16}  # N, O, F, S
 # Aromatic check for pi-stacking
 PI_STACKING_ELEMENTS = {6, 7}  # C, N in aromatic rings
+
+# ── Phase 5 Constants: ADMET ─────────────────────────────────
+
+# Risk classification labels
+ADMET_RISK_GREEN = "green"      # favorable
+ADMET_RISK_YELLOW = "yellow"    # moderate concern
+ADMET_RISK_RED = "red"          # unfavorable
+
+# ── Absorption ──
+
+# Caco-2 permeability (TPSA-based)
+ADMET_CACO2_TPSA_GOOD = 90.0        # TPSA < 90 → high permeability
+ADMET_CACO2_TPSA_MODERATE = 140.0   # TPSA 90-140 → moderate
+
+# Human Intestinal Absorption
+ADMET_HIA_TPSA_CUTOFF = 140.0       # TPSA > 140 → poor HIA
+
+# P-glycoprotein substrate
+ADMET_PGP_MW_THRESHOLD = 400.0
+ADMET_PGP_TPSA_THRESHOLD = 75.0
+
+# Oral bioavailability LogP range
+ADMET_BIOAVAILABILITY_LOGP_RANGE = (-0.4, 5.6)
+
+# ── Distribution ──
+
+# Blood-Brain Barrier: LogBB = 0.155*LogP - 0.01*TPSA + 0.164
+ADMET_BBB_LOGP_COEFF = 0.155
+ADMET_BBB_TPSA_COEFF = -0.01
+ADMET_BBB_INTERCEPT = 0.164
+ADMET_BBB_THRESHOLD = 0.0    # LogBB > 0 → BBB+
+
+# Plasma protein binding
+ADMET_PPB_LOGP_HIGH = 3.0    # LogP > 3 → high PPB
+ADMET_PPB_LOGP_LOW = 1.0     # LogP < 1 → low PPB
+
+# Volume of distribution
+ADMET_VOD_LOGP_LOW = 1.0
+ADMET_VOD_LOGP_HIGH = 3.0
+
+# ── Metabolism ──
+
+# CYP inhibition structural alerts (SMARTS)
+ADMET_CYP_INHIBITION_SMARTS = {
+    "imidazole": "[nR1]1cc[nR1]c1",
+    "triazole": "[nR1]1c[nR1][nR1]c1",
+    "pyridine_N": "c1ccncc1",
+    "thiophene": "c1ccsc1",
+    "furan": "c1ccoc1",
+    "methylenedioxy": "O1COc2ccccc21",
+    "thioamide": "C(=S)N",
+    "hydrazine": "[NH]N",
+    "isothiocyanate": "N=C=S",
+}
+
+# Metabolic stability thresholds
+ADMET_METABOLIC_STABILITY_MW_CUTOFF = 500.0
+ADMET_METABOLIC_STABILITY_LOGP_CUTOFF = 3.0
+ADMET_METABOLIC_STABILITY_ROTBONDS_CUTOFF = 7
+ADMET_METABOLIC_STABILITY_AROMATIC_CUTOFF = 3
+
+# ── Excretion ──
+
+# Renal clearance likelihood
+ADMET_RENAL_MW_THRESHOLD = 500.0
+ADMET_RENAL_LOGP_THRESHOLD = 2.0
+
+# Half-life classes
+ADMET_HALFLIFE_SHORT = "short"
+ADMET_HALFLIFE_MEDIUM = "medium"
+ADMET_HALFLIFE_LONG = "long"
+
+# ── Toxicity ──
+
+# hERG channel liability
+ADMET_HERG_LOGP_THRESHOLD = 3.7
+ADMET_HERG_MW_THRESHOLD = 400.0
+ADMET_HERG_SMARTS = {
+    "basic_nitrogen_long_chain": "[NH2,NH1,NH0]CCCC",
+    "phenothiazine": "c1ccc2c(c1)Sc1ccccc1N2",
+    "diphenylmethyl": "C(c1ccccc1)c1ccccc1",
+}
+
+# AMES mutagenicity structural alerts
+ADMET_AMES_SMARTS = {
+    "aromatic_nitro": "c[N+](=O)[O-]",
+    "aromatic_amine": "c[NH2]",
+    "aromatic_nitroso": "cN=O",
+    "epoxide": "C1OC1",
+    "aziridine": "C1NC1",
+    "alkyl_halide": "[CX4][Cl,Br,I]",
+    "michael_acceptor": "[CH]=[CH]C(=O)",
+    "aldehyde": "[CH1](=O)",
+    "acyl_halide": "C(=O)[Cl,Br,I]",
+    "nitrogen_mustard": "ClCCN",
+    "hydrazine_ames": "[NH2][NH2]",
+    "azide": "[N-]=[N+]=N",
+}
+
+# Hepatotoxicity reactive metabolite alerts
+ADMET_HEPATOTOX_SMARTS = {
+    "quinone": "O=C1C=CC(=O)C=C1",
+    "thiophene_hep": "c1ccsc1",
+    "furan_hep": "c1ccoc1",
+    "aniline": "c1ccc(N)cc1",
+    "nitroaromatic_hep": "c[N+](=O)[O-]",
+    "hydrazine_hep": "[NH]N",
+    "michael_acceptor_hep": "[CH]=[CH]C(=O)",
+    "epoxide_hep": "C1OC1",
+    "acyl_glucuronide": "OC(=O)c",
+}
+
+# ── ADMET Scoring ──
+
+# Domain weights for aggregate ADMET score
+ADMET_SCORING_WEIGHTS = {
+    "absorption": 0.25,
+    "distribution": 0.15,
+    "metabolism": 0.20,
+    "excretion": 0.10,
+    "toxicity": 0.30,
+}
+
+# Overall ADMET classification thresholds
+ADMET_CLASS_FAVORABLE_THRESHOLD = 0.7
+ADMET_CLASS_MODERATE_THRESHOLD = 0.4

@@ -1,0 +1,13 @@
+{
+  "total_molecules": 397,
+  "mean_score": 0.573,
+  "class_distribution": {
+    "poor": 197,
+    "moderate": 15,
+    "favorable": 185
+  },
+  "score_range": [
+    0.219,
+    0.963
+  ]
+}
