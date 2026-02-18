@@ -237,6 +237,10 @@ VINA_NUM_MODES = 9
 VINA_ENERGY_RANGE = 3.0
 GRID_PADDING = 10.0  # Angstroms around ligand
 
+# Vina executable auto-discovery paths (CLI binary fallback)
+VINA_EXECUTABLE_NAMES = ["vina", "vina.exe", "vina_1.2.7_win.exe"]
+VINA_DEFAULT_SCORING = "vina"  # vina, vinardo, or ad4
+
 # Interaction distance cutoffs (Angstroms)
 INTERACTION_HBOND_DISTANCE = 3.5
 INTERACTION_HBOND_ANGLE = 120.0  # degrees

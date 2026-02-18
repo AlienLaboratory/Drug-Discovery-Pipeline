@@ -1,1 +1,1 @@
-"""Molecular docking: grid definition, protein prep, Vina wrapper (optional)."""
+"""Molecular docking: grid definition, protein prep, Vina wrapper (CLI + Python)."""

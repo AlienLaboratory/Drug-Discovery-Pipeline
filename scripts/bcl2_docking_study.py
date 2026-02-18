@@ -283,16 +283,23 @@ def prepare_3d_conformers(dataset, output_dir, n_confs=10):
 
 
 def attempt_vina_docking(dataset, protein_path, output_dir):
-    """Step 8a: Try AutoDock Vina docking."""
+    """Step 8a: Try AutoDock Vina docking (Python bindings or CLI binary)."""
     print_header("Step 8: Molecular Docking")
 
     try:
-        from drugflow.phase4.docking.vina_wrapper import _check_vina_available
+        from drugflow.phase4.docking.vina_wrapper import (
+            _check_vina_available,
+            get_vina_backend,
+            dock_dataset_vina,
+            protein_pdb_to_pdbqt,
+        )
+        from drugflow.phase4.docking.grid import DockingBox
+
         if not _check_vina_available():
             raise ImportError("Vina not available")
 
-        from drugflow.phase4.docking.vina_wrapper import dock_dataset_vina
-        from drugflow.phase4.docking.grid import DockingBox
+        backend = get_vina_backend()
+        print(f"  AutoDock Vina detected! Backend: {backend}")
 
         box = DockingBox(
             center_x=BCL2_BINDING_SITE_CENTER[0],
@@ -303,13 +310,45 @@ def attempt_vina_docking(dataset, protein_path, output_dir):
             size_z=BCL2_BINDING_SITE_SIZE[2],
         )
 
-        print("  AutoDock Vina detected! Running docking...")
-        dataset = dock_dataset_vina(dataset, protein_path, box)
-        print("  Vina docking complete!")
+        # Pre-convert protein to PDBQT if it's a PDB
+        pdbqt_path = protein_path
+        if protein_path.lower().endswith(".pdb"):
+            pdbqt_path = os.path.join(
+                output_dir, os.path.basename(protein_path).replace(".pdb", ".pdbqt")
+            )
+            if not os.path.exists(pdbqt_path):
+                print(f"  Converting protein PDB → PDBQT...")
+                pdbqt_path = protein_pdb_to_pdbqt(protein_path, pdbqt_path)
+                print(f"  Protein PDBQT: {pdbqt_path}")
+
+        n_mols = len(dataset.valid_records)
+        print(f"  Docking {n_mols} molecules (exhaustiveness=8, up to 9 poses each)...")
+        print(f"  This may take several minutes...")
+
+        dataset = dock_dataset_vina(
+            dataset, pdbqt_path, box, output_dir=output_dir,
+        )
+
+        # Count successful docks
+        docked = sum(1 for r in dataset.valid_records if "vina_score" in r.properties)
+        scores = [r.properties["vina_score"] for r in dataset.valid_records
+                   if "vina_score" in r.properties]
+
+        print(f"\n  Vina docking complete!")
+        print(f"  Successfully docked: {docked}/{n_mols}")
+        if scores:
+            print(f"  Best score: {min(scores):.2f} kcal/mol")
+            print(f"  Mean score: {sum(scores)/len(scores):.2f} kcal/mol")
+            print(f"  Worst score: {max(scores):.2f} kcal/mol")
+
         return dataset, "vina"
 
-    except (ImportError, Exception) as e:
+    except ImportError as e:
         print(f"  Vina not available ({e})")
+        print("  Falling back to shape-based screening...")
+        return None, None
+    except Exception as e:
+        print(f"  Vina docking failed: {e}")
         print("  Falling back to shape-based screening...")
         return None, None
 

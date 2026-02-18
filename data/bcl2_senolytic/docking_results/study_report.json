@@ -1,89 +1,89 @@
 {
   "study": "BCL-2 Senolytic Drug Discovery \u2014 Docking Study",
   "target": "BCL-2 (PDB: 6O0K)",
-  "method": "fingerprint_similarity",
+  "method": "vina",
   "total_novel_candidates": 30,
-  "scoring_column": "similarity_score",
+  "scoring_column": "vina_score",
   "top_10": [
     {
       "rank": 1,
-      "smiles": "O=C(C1CC2(CCN(C3CCOCC3)CC2)C1)N1CCC2(CC1)CC(c1cnc3[nH]ccc3c1)C2",
-      "admet_score": 0.75,
+      "smiles": "CN1CC=C(c2ccccc2[C@@H]2CN(C)CCN2C(=O)C2CC3(CCN([C@H]4CC[C@](C)(O)CC4)CC3)C2)CC1",
+      "admet_score": 0.8,
       "admet_class": "favorable",
-      "predicted_pIC50": 7.142890430237511,
-      "similarity_score": 0.045
+      "predicted_pIC50": 7.042533921118327,
+      "vina_score": -3.597
     },
     {
       "rank": 2,
-      "smiles": "CCC1CC2(CCN(C(=O)C3CC4(CCN(c5ccccc5C5=CCN(C)CC5)CC4)C3)CC2)C1",
-      "admet_score": 0.737,
-      "admet_class": "favorable",
-      "predicted_pIC50": 7.136553356850651,
-      "similarity_score": 0.045
-    },
-    {
-      "rank": 3,
-      "smiles": "O=C(C1CC2(CCN([C@@H]3COCCO3)CC2)C1)N1CCC2(CC1)CC(c1cnc3[nH]ccc3c1)C2",
-      "admet_score": 0.75,
-      "admet_class": "favorable",
-      "predicted_pIC50": 7.226854155960712,
-      "similarity_score": 0.044
-    },
-    {
-      "rank": 4,
-      "smiles": "O=C(C1CC2(CCN(c3cnc4[nH]ccc4c3)CC2)C1)N1CCC2(CC1)CC([C@@H]1COCCO1)C2",
-      "admet_score": 0.75,
-      "admet_class": "favorable",
-      "predicted_pIC50": 7.213522723394945,
-      "similarity_score": 0.043
-    },
-    {
-      "rank": 5,
-      "smiles": "CN1CC=C(c2ccccc2N2CCC3(CC2)CC(C(=O)N2CCC4(CC2)CC([C@@H]2COCCO2)C4)C3)CC1",
-      "admet_score": 0.762,
-      "admet_class": "favorable",
-      "predicted_pIC50": 7.203714233770958,
-      "similarity_score": 0.043
-    },
-    {
-      "rank": 6,
-      "smiles": "CN1CC=C(c2ccccc2[C@H]2CCCN2C(=O)C2CC3(CCN(C4CCOCC4)CC3)C2)CC1",
-      "admet_score": 0.825,
-      "admet_class": "favorable",
-      "predicted_pIC50": 7.03199022401876,
-      "similarity_score": 0.043
-    },
-    {
-      "rank": 7,
-      "smiles": "CN1CC=C(c2ccccc2C2CCN(C(=O)C3CC4(CCN(C5CCOCC5)CC4)C3)CC2)CC1",
-      "admet_score": 0.825,
-      "admet_class": "favorable",
-      "predicted_pIC50": 7.00985898375902,
-      "similarity_score": 0.043
-    },
-    {
-      "rank": 8,
       "smiles": "CN1CC=C(c2ccccc2C2CC3(CCN(C(=O)C4CC5(CCN(C6CCOCC6)CC5)C4)CC3)C2)CC1",
       "admet_score": 0.722,
       "admet_class": "favorable",
       "predicted_pIC50": 7.2917984546580925,
-      "similarity_score": 0.043
+      "vina_score": -3.508
+    },
+    {
+      "rank": 3,
+      "smiles": "CN1CC=C(c2ccccc2[C@H]2CCCN2C(=O)C2CC3(CCN(c4ccccc4C4=CCN(C)CC4)CC3)C2)CC1",
+      "admet_score": 0.672,
+      "admet_class": "moderate",
+      "predicted_pIC50": 7.369919303302259,
+      "vina_score": -3.494
+    },
+    {
+      "rank": 4,
+      "smiles": "CN1CCN(C(=O)C2CC3(CCN(C4CCOCC4)CC3)C2)[C@H](c2cnc3[nH]ccc3c2)C1",
+      "admet_score": 0.788,
+      "admet_class": "favorable",
+      "predicted_pIC50": 7.023976163239537,
+      "vina_score": -3.427
+    },
+    {
+      "rank": 5,
+      "smiles": "CN1CC=C(c2ccccc2N2CCC3(CC2)CC(C(=O)N2CCN(C)C[C@H]2C2CC2)C3)CC1",
+      "admet_score": 0.788,
+      "admet_class": "favorable",
+      "predicted_pIC50": 7.062134751139977,
+      "vina_score": -3.395
+    },
+    {
+      "rank": 6,
+      "smiles": "CN1CC=C(c2ccccc2N2CCC3(CC2)CC(C(=O)N2CCC[C@@H]2C2CC2)C3)CC1",
+      "admet_score": 0.788,
+      "admet_class": "favorable",
+      "predicted_pIC50": 7.048105676139975,
+      "vina_score": -3.389
+    },
+    {
+      "rank": 7,
+      "smiles": "CN1CC=C(c2ccccc2C2CC3(CCN(C(=O)C4CC5(CCN([C@H]6CC[C@](C)(O)CC6)CC5)C4)CC3)C2)CC1",
+      "admet_score": 0.709,
+      "admet_class": "favorable",
+      "predicted_pIC50": 7.397493922661789,
+      "vina_score": -3.383
+    },
+    {
+      "rank": 8,
+      "smiles": "CC(C)C1CC2(CCN(C(=O)C3CC4(CCN(c5ccccc5C5=CCN(C)CC5)CC4)C3)CC2)C1",
+      "admet_score": 0.737,
+      "admet_class": "favorable",
+      "predicted_pIC50": 7.184243403401881,
+      "vina_score": -3.255
     },
     {
       "rank": 9,
-      "smiles": "CN1CC=C(c2ccccc2[C@@H]2CN(C)CCN2C(=O)C2CC3(CCN(C4CCOCC4)CC3)C2)CC1",
-      "admet_score": 0.8,
+      "smiles": "CN1CC=C(c2ccccc2N2CCC3(CC2)CC(C(=O)N2CCC4(CC2)CC(N(C)C)C4)C3)CC1",
+      "admet_score": 0.788,
       "admet_class": "favorable",
-      "predicted_pIC50": 7.01531457280664,
-      "similarity_score": 0.042
+      "predicted_pIC50": 7.046020670147908,
+      "vina_score": -3.246
     },
     {
       "rank": 10,
-      "smiles": "CN1CC=C(c2ccccc2C2CC3(CCN(C(=O)C4CC5(CCN([C@@H]6COCCO6)CC5)C4)CC3)C2)CC1",
-      "admet_score": 0.8,
+      "smiles": "CN1CC=C(c2ccccc2[C@@H]2CN(C)CCN2C(=O)C2CC3(CCN(C4CC4)CC3)C2)CC1",
+      "admet_score": 0.825,
       "admet_class": "favorable",
-      "predicted_pIC50": 7.213900362116776,
-      "similarity_score": 0.042
+      "predicted_pIC50": 7.018923991118331,
+      "vina_score": -3.221
     }
   ]
 }

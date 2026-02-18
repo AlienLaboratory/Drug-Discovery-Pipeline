@@ -36,5 +36,11 @@ htmlcov/
 # Jupyter
 .ipynb_checkpoints/
 
+# External tools (platform-specific binaries)
+tools/
+
+# Windows null device artifact
+nul
+
 # Claude
 .claude/
